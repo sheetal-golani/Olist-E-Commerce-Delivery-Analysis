@@ -1,8 +1,6 @@
-# Olist: Delivery Performance and Customer Satisfaction
+# Olist E-Commerce: Delivery Performance and Customer Satisfaction
 
 Do late deliveries drive bad reviews, where do the delays come from, and do they stop customers from buying again? I cleaned and analysed 96,203 delivered orders from a Brazilian marketplace in **PostgreSQL**, then built a six-page **Power BI** dashboard.
-
-![Executive Summary](screenshots/01-executive-summary.png)
 
 ## Questions answered
 1. How much worse do customers rate late orders?
@@ -13,19 +11,12 @@ Do late deliveries drive bad reviews, where do the delays come from, and do they
 6. Does a late first order reduce repeat purchases?
 
 ## Dataset
-[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) on Kaggle: real, anonymised orders from 2016 to 2018 in 9 CSV files (orders, items, payments, reviews, customers, products, sellers, geolocation, category translation). The CSVs are not in this repo; download them from Kaggle.
+[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) on Kaggle: real, anonymised orders from 2016 to 2018 in 9 CSV files (orders, items, payments, reviews, customers, products, sellers, geolocation, category translation). The CSVs can be found in this not in this Repository.
 
 ## Tools
 - **PostgreSQL / SQL**: loading, cleaning, analysis queries and the views Power BI reads
 - **Power BI**: data model, DAX measures, calculated columns and the dashboard
 
-## Repository
-```
-README.md
-sql/olist_analysis.sql      # full SQL workflow, run top to bottom
-powerbi/olist_dashboard.pbix
-screenshots/                # one image per dashboard page
-```
 
 ## What I did
 
@@ -51,15 +42,15 @@ Power BI loads those four views as they are, with no Power Query transformations
 
 Two tables are deliberately not connected:
 - **Recommendations** is a static text table with nothing to join to.
-- **bi_retention** is a one-row-per-customer cohort table built in SQL, used only for the retention chart and card. Because of this, the state slicer does not filter the retention numbers.
+- **bi_retention** is a one-row-per-customer cohort table built in SQL, used only for the retention chart and card. 
 
 ## Dashboard
-1. **Executive Summary**: orders grew fast, late deliveries spiked twice, only about 3% of customers order again
-2. **Delivery vs Satisfaction**: a missed delivery date hurts far more than a slow delivery
-3. **Where the Delay Happens**: late spikes follow carrier transit, not seller handling
-4. **Geography**: RJ and the northeast run 2-4x São Paulo's late rate
-5. **Categories and Sellers**: the worst-rated categories are not delivery problems
-6. **Recommendations**: fix carrier delays first; retention needs its own plan
+1. **Executive Summary** ![Executive Summary](screenshots/01-executive-summary.png)
+2. **Delivery vs Satisfaction** ![Delivery vs Satisfaction](screenshots/02-delivery-vs-satisfaction.png)
+3. **Where the Delay Happens** ![Where the Delay Happens](screenshots/03-where-the-delay-happens.png)
+4. **Geography** ![Geography](screenshots/04-geography.png)
+5. **Categories and Sellers** ![Categories and Sellers](screenshots/05-categories-and-sellers.png)
+6. **Recommendations** ![Recommendations](screenshots/06-recommendations.png)
 
 ## Key findings
 - 6.8% of orders arrive late and average **2.27 stars vs 4.29** for on-time orders.
@@ -70,13 +61,14 @@ Two tables are deliberately not connected:
 - Only 3.1% of customers buy again within 180 days (2.7% after a late first order vs 3.1% after an on-time one). The gap is small and not statistically significant.
 
 ## Limitations
-- Only delivered orders are analysed, so Jun to Aug 2018 may look better than it was.
-- Results show association, not proof of cause. Review text was not analysed.
-- The dataset has no carrier names, so carriers cannot be compared.
-- The Power BI file reads from a local PostgreSQL database, so it cannot refresh without rebuilding that database.
 
-## How to reproduce
-1. Download the CSVs from Kaggle.
-2. Create the tables and load the CSVs (Part 1 of the SQL file).
-3. Run the rest of `sql/olist_analysis.sql` to create the views.
-4. Open `powerbi/olist_dashboard.pbix`, or import the four `bi_*` views into a new report.
+**What the dataset does not contain, so it was not analysed**
+- No carrier names, so carriers cannot be compared. Carrier transit is measured as a total only.
+- No returns, refunds or complaint reasons, so the cause of a bad review is unknown.
+
+**Choices made in the analysis**
+- Only delivered orders are analysed (Jan 2017 to Aug 2018). Jun to Aug 2018 may look better than it was because orders not yet delivered are excluded.
+- 643 delivered orders have no review and are left out of rating figures.
+- The data covers 20 months, so only one November peak is observed. Seasonality cannot be confirmed.
+- Results show association, not proof of cause.
+
