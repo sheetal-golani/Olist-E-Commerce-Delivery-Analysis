@@ -177,12 +177,12 @@ This is a light model rather than a full star schema, because the SQL views alre
 | 5. Categories and Sellers | Are low ratings a delivery problem, a product problem or a seller problem? |
 | 6. Recommendations | Does a bad first order reduce repeat purchase, and what should the business do? |
 
-![Executive Summary](images/01_executive_summary.png)
-![Delivery vs Satisfaction](images/02_delivery_vs_satisfaction.png)
-![Where the Delay Happens](images/03_where_the_delay_happens.png)
-![Geography](images/04_geography.png)
-![Categories and Sellers](images/05_categories_and_sellers.png)
-![Recommendations](images/06_recommendations.png)
+![Executive Summary](screenshots/01-executive-summary.png)
+![Delivery vs Satisfaction](screenshots/02-delivery-vs_satisfaction.png)
+![Where the Delay Happens](screenshots/03_where-the-delay-happens.png)
+![Geography](screenshots/04-geography.png)
+![Categories and Sellers](screenshots/05-categories-and-sellers.png)
+![Recommendations](screenshots/06-recommendations.png)
 
 ## Limitations
 
