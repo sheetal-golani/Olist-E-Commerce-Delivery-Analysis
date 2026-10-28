@@ -168,14 +168,45 @@ This is a light model rather than a full star schema, because the SQL views alre
 
 ## Dashboard
 
-| Page | Question it answers |
-|---|---|
-| 1. Executive Summary | How big is the marketplace, and where do late deliveries and repeat purchase stand? | ![Executive Summary](screenshots/01-executive-summary.png)
-| 2. Delivery vs Satisfaction | How much does lateness hurt ratings, and at what point? | ![Delivery vs Satisfaction](screenshots/02-delivery-vs-satisfaction.png)
-| 3. Where the Delay Happens | Do late orders lose time with sellers or carriers? |![Where the Delay Happens](screenshots/03-where-the-delay-happens.png)
-| 4. Geography | Which states are worst, and where are most late orders?|![Geography](screenshots/04-geography.png)
-| 5. Categories and Sellers | Are low ratings a delivery problem, a product problem or a seller problem? |![Categories and Sellers](screenshots/05-categories-and-sellers.png)
-| 6. Recommendations | Does a bad first order reduce repeat purchase, and what should the business do?| ![Recommendations](screenshots/06-recommendations.png)
+### 1. Executive Summary
+**Question:** How big is the marketplace, and where do late deliveries and repeat purchase stand?
+
+![Executive Summary](screenshots/01-executive-summary.png)
+
+**Takeaway:** Orders grew fast through 2017, late deliveries spiked twice (Nov 2017 and Mar 2018), and only 3.1% of customers order again.
+
+### 2. Delivery vs Satisfaction
+**Question:** How much does lateness hurt ratings, and at what point?
+
+![Delivery vs Satisfaction](screenshots/02-delivery-vs-satisfaction.png)
+
+**Takeaway:** A missed date hurts more than a slow delivery. Even 1-3 days late costs a full star, while on-time orders that took 22+ days still score 3.9.
+
+### 3. Where the Delay Happens
+**Question:** Do late orders lose time with sellers or carriers?
+
+![Where the Delay Happens](screenshots/03-where-the-delay-happens.png)
+
+**Takeaway:** Late orders spend 27.9 days with the carrier vs 7.9 for on-time orders. Seller handling adds only about 3 days.
+
+### 4. Geography
+**Question:** Which states are worst, and where are most late orders?
+
+![Geography](screenshots/04-geography.png)
+
+**Takeaway:** RJ and the northeast run 2-4x São Paulo's late rate, and RJ holds about 23% of all late orders.
+
+### 5. Categories and Sellers
+**Question:** Are low ratings a delivery problem, a product problem or a seller problem?
+
+![Categories and Sellers](screenshots/05-categories-and-sellers.png)
+
+**Takeaway:** The worst-rated categories have normal late rates, so they are not delivery problems. 21 flagged sellers cause 4.9% of low ratings, a small lever.
+
+### 6. Recommendations
+**Question:** Does a bad first order reduce repeat purchase, and what should the business do?
+
+![Recommendations](screenshots/06-recommendations.png)
 
 
 
@@ -195,22 +226,4 @@ Choices made in the analysis:
 - Order value is item price plus freight, in the dataset's local currency (R$). Category counts count multi-item orders once per item.
 - Results show association, not proof of cause.
 
-## Possible next steps
-
-- Analyse the review text to explain the low ratings in office furniture and home categories.
-- Get carrier identifiers and test whether specific carriers drive the RJ and northeast delays.
-- Add date, state and category dimension tables, and carry state into `bi_retention`, so one slicer filters the whole model.
-- Run a pilot of early delay messaging (recommendation 4).
-
-## Repository contents
-
-```
-├── README.md
-├── sql/
-│   └── olist_analysis.sql      full SQL workflow, run top to bottom
-├── dashboard/
-│   ├── olist_dashboard.pbix
-│   └── olist_dashboard.pdf
-└── images/                     dashboard screenshots
-```
 
