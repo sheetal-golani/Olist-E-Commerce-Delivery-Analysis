@@ -170,12 +170,12 @@ This is a light model rather than a full star schema, because the SQL views alre
 
 | Page | Question it answers |
 |---|---|
-| 1. Executive Summary | How big is the marketplace, and where do late deliveries and repeat purchase stand? ![Executive Summary](screenshots/01-executive-summary.png)| 
-| 2. Delivery vs Satisfaction | How much does lateness hurt ratings, and at what point? ![Delivery vs Satisfaction](screenshots/02-delivery-vs-satisfaction.png)| 
-| 3. Where the Delay Happens | Do late orders lose time with sellers or carriers? ![Where the Delay Happens](screenshots/03-where-the-delay-happens.png)|
-| 4. Geography | Which states are worst, and where are most late orders?![Geography](screenshots/04-geography.png)|
-| 5. Categories and Sellers | Are low ratings a delivery problem, a product problem or a seller problem?![Categories and Sellers](screenshots/05-categories-and-sellers.png) |
-| 6. Recommendations | Does a bad first order reduce repeat purchase, and what should the business do? ![Recommendations](screenshots/06-recommendations.png)|
+| 1. Executive Summary | How big is the marketplace, and where do late deliveries and repeat purchase stand? | ![Executive Summary](screenshots/01-executive-summary.png)
+| 2. Delivery vs Satisfaction | How much does lateness hurt ratings, and at what point? | ![Delivery vs Satisfaction](screenshots/02-delivery-vs-satisfaction.png)
+| 3. Where the Delay Happens | Do late orders lose time with sellers or carriers? |![Where the Delay Happens](screenshots/03-where-the-delay-happens.png)
+| 4. Geography | Which states are worst, and where are most late orders?|![Geography](screenshots/04-geography.png)
+| 5. Categories and Sellers | Are low ratings a delivery problem, a product problem or a seller problem? |![Categories and Sellers](screenshots/05-categories-and-sellers.png)
+| 6. Recommendations | Does a bad first order reduce repeat purchase, and what should the business do?| ![Recommendations](screenshots/06-recommendations.png)
 
 
 
