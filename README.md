@@ -23,23 +23,10 @@ Do late deliveries drive bad reviews, where do the delays come from, and do they
 - **Only 3.1% of customers buy again within 180 days** (2.7% after a late first order vs 3.1% after an on-time one). The gap is small and not statistically significant (z of about 1.5), so delivery does not clearly explain the low repeat rate.
 - About 15% of order value (R$2.3M of R$15.4M) sits in orders rated 1-2 stars. This is value in unhappy orders, not lost revenue.
 
-## Recommendations
-
-| Priority | Recommendation | Evidence | Confidence |
-|---|---|---|---|
-| 1 | Escalate carrier performance on RJ and northeast routes (MA, CE, BA) | RJ holds 22.9% of all late orders; MA, CE and BA run 12-17.5% late vs 4.5% in SP; 87% of the extra delay on late orders is carrier transit; late orders account for up to 28% of low ratings | Act now, then request carrier-level data |
-| 2 | Monitor monthly late % and carrier transit days, with an alert (for example late % above 8%) | Late % spiked to 12-19% in Nov 2017 and Feb-Mar 2018 while seller handling time stayed flat | Act now, low cost |
-| 3 | Agree extra carrier capacity before the November peak | Nov 2017 volume jumped 63% month on month and late % hit 12.4% | Test: only one peak observed |
-| 4 | Message customers early when an order passes its promised date, and escalate at 4+ days late | Average rating falls from 4.29 to 3.29 at 1-3 days late and to 2.10 at 4-7 days late | Test with a pilot |
-| 5 | Investigate quality and listing accuracy in office furniture, bed/bath/table and furniture/decor | 18-25% low ratings, with late rates (7-8%) close to the 6.8% average | Investigate: review text not analysed |
-| 6 | Review the 21 flagged sellers | They handle 1.8% of orders but cause 4.9% of low-rated orders | Act now, small lever |
-| 7 | Test retention levers separately from delivery fixes | Repeat rate is about 3% and differs little by first experience (3.1% vs 2.7%, small samples) | Test: delivery fixes alone will not lift it |
-
-Sizing: if late orders were rated like on-time orders, up to about 3,400 low-rated orders (about 28% of all low-rated orders) would disappear. This is an upper bound, not a forecast.
 
 ## Dataset
 
-[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) on Kaggle: real, anonymised orders from 2016 to 2018 in 9 CSV files. The CSV files are **not** included in this repository; download them from Kaggle and check the licence terms on that page.
+[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) on Kaggle: real, anonymised orders from 2016 to 2018 in 9 CSV files. 
 
 | Table | Rows | Used here |
 |---|---|---|
@@ -52,8 +39,6 @@ Sizing: if late orders were rated like on-time orders, up to about 3,400 low-rat
 | category_translation | 71 | Yes |
 | order_payments | 103,886 | No |
 | geolocation | 1,000,163 | No |
-
-I also looked at the companion Marketing Funnel dataset and left it out: only some of its sellers appear in the orders data, so any analysis would rest on a small, possibly biased sample.
 
 ## Tools
 
@@ -234,14 +219,3 @@ Choices made in the analysis:
 └── images/                     dashboard screenshots
 ```
 
-## How to reproduce
-
-1. Download the CSV files from Kaggle (link above).
-2. Run Part 1 of `sql/olist_analysis.sql` in PostgreSQL to create the `olist` schema and tables.
-3. Load each CSV into the table with the matching name using psql's `\copy` (Part 2), then check the row counts with query 3.1.
-4. Run the rest of the file in order: profiling, cleaning views, analysis queries, BI views, final checks.
-5. Open `dashboard/olist_dashboard.pbix` in Power BI Desktop and point the PostgreSQL source at your database (server `localhost`, database `postgres`).
-
----
-
-**Author:** [Your name] | [LinkedIn] | [Email]
